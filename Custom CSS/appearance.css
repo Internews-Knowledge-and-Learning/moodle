@@ -1,0 +1,94 @@
+/*extra header*/
+#page-mod-page-view .page-context-header, #page-mod-feedback-view .page-context-header, #page-mod-appointment-view .page-context-header, #page-mod-assignment-view .page-context-header, #page-mod-book-view .page-context-header, #page-mod-chat-view .page-context-header, #page-mod-choice-view .page-context-header, #page-mod-database-view .page-context-header, #page-mod-forum-view .page-context-header, #page-mod-glossary-view .page-context-header {
+  display: none;
+}
+/*not all activities included above; will need adding*/
+
+/*complete button*/
+.activity-header .completion-info button[data-toggletype="manual:mark-done"]{
+  width: 70px;
+  height: auto;
+  white-space: normal!important;
+  position: fixed;
+  right: 1.2%;
+  bottom: 25%;
+}
+
+/*.activity-header .completion-info{
+  position: fixed;
+  right: 1.2%;
+  bottom: 25%;
+}
+.activity-header .completion-info button{
+  width: 70px;
+  height: auto;
+  white-space: normal!important;
+}
+.activity-header .completion-info .automatic-completion-conditions .badge{
+  width: 80px;
+  white-space: break-spaces;
+  padding-top: 0px;
+}*/
+
+/*navigation buttons*/
+.activity-navigation .urlselect{
+  display:none;
+}
+.activity-navigation #next-activity-link::before{
+   content:"NEXT: ";
+}
+.activity-navigation #next-activity-link{
+   background: #b2bce0;
+   color:#000000;
+}
+.activity-navigation #next-activity-link:hover{
+  text-decoration:none;
+/*option 1: lift +shadow*/
+  /*box-shadow: 0 0.5em 0.5em -0.6em rgba(0, 0, 0, 0.6);
+  transform: translateY(-0.2em);*/
+}
+
+/*SCORM*/
+#page-mod-scorm-player #scormpage #tocbox #scorm_layout{
+  border: solid #ececec;
+}
+#page-mod-scorm-player  .btn-secondary[title="Exit activity"]{
+  background: #ffffff;
+  border-color: #b2bce0;
+  border-width: 2px;
+}
+
+/*More scorm, super messy and rough*/
+
+#page-mod-scorm-player {
+.drawer.drawer-left,  .header-maxwidth, .secondary-navigation, .navbar.fixed-top, #page-wrapper #page-footer, .modal-backdrop.show, .drawer-toggler { display: none;}
+#page.drawers.show-drawer-left {
+  margin-left: 0px;
+}
+#page.drawers {
+  height: auto !important;
+}
+#page {
+  margin-top: 0px !important; padding: 5px;
+}
+#page.drawers {
+  padding: 0px;
+}
+#page.drawers .main-inner {
+  padding:0px; margin-top:0px; 
+  margin-bottom: 0px
+}
+#region-main-box {
+  margin-top: 5px
+}
+#scorm_layout {
+  height: 80vh !important; 
+  margin-bottom: 20px
+}
+.pb-3, .py-3 {
+  padding-bottom: 0px !important
+}
+.mt-5, .my-5 {
+  margin-top: 0px !important; 
+  margin-bottom: 0px !important
+}
