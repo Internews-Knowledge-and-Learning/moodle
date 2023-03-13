@@ -60,35 +60,100 @@
 
 /*More scorm, super messy and rough*/
 
+#page-mod-scorm-player {overflow-y:hidden;}
+
 #page-mod-scorm-player {
-.drawer.drawer-left,  .header-maxwidth, .secondary-navigation, .navbar.fixed-top, #page-wrapper #page-footer, .modal-backdrop.show, .drawer-toggler { display: none;}
-#page.drawers.show-drawer-left {
-  margin-left: 0px;
+#scormpage #scorm_object {
+ width: 100%;
+ height: 100%;
 }
-#page.drawers {
-  height: auto !important;
+.drawer.drawer-left,  .header-maxwidth, .secondary-navigation, .navbar.fixed-top, #page-wrapper #page-footer, .modal-backdrop.show, .drawer-toggler, h2 { display: none;}
+#page.drawers.show-drawer-left {margin-left: 0px;}
+#page.drawers {height: auto !important;}
+#page {margin-top: 0px !important; padding: 5px;}
+#page.drawers {padding: 0px;}
+#page.drawers .main-inner {padding:0px; margin-top:0px; margin-bottom: 0px}
+#region-main-box {margin-top: 5px}
+#scorm_layout {height: 80vh !important; margin-bottom: 20px}
+.pb-3, .py-3 {padding-bottom: 0px !important}
+.mt-5, .my-5 { margin-top: 0px !important; margin-bottom: 0px !important}}
+
+/*homepage*/
+#page-site-index .industry-card .card-img-overlay{
+  padding:0;
 }
-#page {
-  margin-top: 0px !important; padding: 5px;
+#page-site-index .industry-card .card-img-overlay p {
+   background: #0d5cab;
+   padding: 15px 20px 20px 15px;
+   /*border-top: solid #f15c22 6px;*/
+   border-bottom: solid #f15c22 6px;
+   align-self:self-end!important;
+   text-transform: none;
+font-size: 28px;
 }
-#page.drawers {
+#page-site-index .carousel-caption p{
+  padding:20px;
+  background: #132e4d;
+text-transform: none;
+	font-size: 36px;
+	max-width: unset;
+}
+
+#page-site-index .text-uppercase {
+	text-transform: none !important;
+}
+
+
+/*resume button*/
+.btn-info{
+  background: #132e4d;
+}
+.btn-info:hover, .btn-info:focus{
+  background: #0d5cab;
+  color:white; 
+}
+
+/*Catalog categories*/
+#page-course-index-category { 
+
+.gridview .card-block {
   padding: 0px;
 }
-#page.drawers .main-inner {
-  padding:0px; margin-top:0px; 
-  margin-bottom: 0px
+
+.gridview .category-rating-container {
+  background: #132e4d;
+  padding: 5px;
 }
-#region-main-box {
-  margin-top: 5px
+
+.gridview .course-category {
+  padding-top: 5px;
+  padding-left:5px;
 }
-#scorm_layout {
-  height: 80vh !important; 
-  margin-bottom: 20px
+
+.gridview .text-muted {
+  color: #ffffff !important;
 }
-.pb-3, .py-3 {
-  padding-bottom: 0px !important
+
+.gridview .card-block .float-right {
+  padding-right: 5px;
+  margin-top:2px;
 }
-.mt-5, .my-5 {
-  margin-top: 0px !important; 
-  margin-bottom: 0px !important
+
+.gridview .empty-stars {
+  color: #ffffff;
 }
+
+.gridview .course-rating .fa.fa-star {
+  color: #ffffff;
+}
+
+.gridview .card-title {
+  padding: 10px;
+}
+
+.gridview .course-details .text-muted {
+  color: #000000;
+}}
+
+/*Page*/
+.modified {display: none;}
