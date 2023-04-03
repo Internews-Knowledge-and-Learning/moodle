@@ -1,5 +1,5 @@
 /*extra header*/
-#page-mod-page-view .page-context-header, #page-mod-feedback-view .page-context-header, #page-mod-appointment-view .page-context-header, #page-mod-assignment-view .page-context-header, #page-mod-book-view .page-context-header, #page-mod-chat-view .page-context-header, #page-mod-choice-view .page-context-header, #page-mod-database-view .page-context-header, #page-mod-forum-view .page-context-header, #page-mod-glossary-view .page-context-header {
+#page-mod-page-view .page-context-header, #page-mod-feedback-view .page-context-header, #page-mod-appointment-view .page-context-header, #page-mod-assignment-view .page-context-header, #page-mod-book-view .page-context-header, #page-mod-chat-view .page-context-header, #page-mod-choice-view .page-context-header, #page-mod-database-view .page-context-header, #page-mod-forum-view .page-context-header, #page-mod-glossary-view .page-context-header, #page-mod-coursecertificate-view .page-context-header, #page-mod-scorm-view .page-context-header, #page-mod-feedback-complete .page-context-header, #page-mod-lesson-view .page-context-header, #page-mod-feedback-complete .page-context-header{
   display: none;
 }
 /*not all activities included above; will need adding*/
@@ -89,7 +89,11 @@
    border-bottom: solid #f15c22 6px;
    align-self:self-end!important;
    text-transform: none;
-font-size: 28px;
+   font-size: 28px;
+}
+#page-site-index .industry-card a:not([class]):focus{
+  background-color: transparent;
+  box-shadow:none;
 }
 #page-site-index .carousel-caption p{
   padding:20px;
@@ -130,7 +134,7 @@ text-transform: none;
   padding-left:5px;
 }
 
-.gridview .text-muted {
+.category-rating-container .text-muted {
   color: #ffffff !important;
 }
 
@@ -155,5 +159,36 @@ text-transform: none;
   color: #000000;
 }}
 
+.enrolmenticons{
+  display:none;
+}
+
 /*Page*/
 .modified {display: none;}
+
+/*Course editing menu disable for learners*/
+#page-course-view-topics:not(.editing) .secondary-navigation{
+  display:none;
+}
+
+/*remove activity icons and labels*/
+#page-course-view-topics .activity-item .activity-instance .activitytitle .activityiconcontainer, #page-course-view-topics .activity-item .activity-instance .activitytitle .text-uppercase{
+  display:none;
+}
+
+/*reduce size of breadcrumb*/
+#page-navbar .breadcrumb .breadcrumb-item{
+  font-size: calc(0.8rem + 0.045vw);
+}
+
+/*hidden sections*/
+.course-section.hidden .sectionname, .course-section.hidden .icons-collapse-expand{
+  color:grey;
+}
+.course-section.hidden{
+  background: #ececec;
+  border: 2px solid #f0ad4e;
+}
+.course-section.hidden:last-child:not(.section-summary){
+  border-bottom: 2px solid #f0ad4e;
+}
