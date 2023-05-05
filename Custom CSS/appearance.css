@@ -192,3 +192,18 @@ text-transform: none;
 .course-section.hidden:last-child:not(.section-summary){
   border-bottom: 2px solid #f0ad4e;
 }
+
+[id="page-h5p-embed"] {
+
+overflow: hidden;
+
+}
+
+
+/*test select course completion*/
+.block_completionstatus .card-text .table-responsive tr.lastrow td.lastcol{
+  background:yellow;
+}
+body:not(.editing) .drawer-right-toggle button{
+  background-color: red;
+}
