@@ -1,0 +1,10 @@
+@import url(https://internews.unhosting.site/theme/workplace/wpcss.php/kenai/1689261242_1689037413/all-1-1689167166);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+@import url(https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap);
+
+.ejn-home, .public-home, .staff-home{
+  display:none;
+}
+.mobile-home-note{
+  display:block;
+}
