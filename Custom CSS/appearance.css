@@ -8,6 +8,8 @@ $internews-blue: #0d5cab;
 $midnight-blue: #132E4D;
 $light-blue: #b2bce0;
 $yellow: #fcb134;
+$orange:#f15c22;
+$light-green:#6fb43f;
 .card-shadow{
   -webkit-box-shadow: 0 0 6px rgba(0,0,0,.08);
   box-shadow: 0 0 6px rgba(0,0,0,.08);
@@ -20,13 +22,34 @@ ul.select-options li:empty {
 .drawer{
   background-color: $lightest-grey;
 }
-/*body:not(#page-mod-quiz-attempt):not(#page-mod-quiz-summary):not(#page-mod-quiz-review) .drawer-right-toggle{
-  display:none;
-}*/
-.infobox{
-  background: $lightest-blue;
-  color: $midnight-blue;
+body:not(#page-mod-quiz-attempt):not(#page-mod-quiz-summary):not(#page-mod-quiz-review):not(.editing){ 
+  .drawer-right-toggle{
+    display:none;
+  }
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+ /* font-family: 'Outfit', sans-serif;*/
+  font-family: 'Kumbh Sans', sans-serif;
+}
+h4, .h4{
+  font-weight: 550;
+}
+h5, .h5, h6, .h6{
+  font-weight: 500;
+}
+
+.highlightbox{
+  background: $lightest-grey;
   padding:1rem; 
+  margin:0;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius:0;
+}
+.infobox{
+  @extend .highlightbox;
+  background:$lightest-blue;
+  color: $midnight-blue;
   display:flex;
   flex-direction:row;
   &::before{
@@ -38,6 +61,9 @@ ul.select-options li:empty {
   p:last-child{
     margin-bottom:0;
   }
+  h2, h3, h4, h6{
+    @extend .h5;
+  }
 }
 .hive-box{
   @extend .infobox;
@@ -46,6 +72,91 @@ ul.select-options li:empty {
     color: $yellow;
   }
 }
+
+/*-----C4L-----*/
+.c4l-allpurposecard{
+  @extend .highlightbox;
+}
+.c4l-learningoutcomes{
+  @extend .highlightbox;
+  .c4l-learningoutcomes-title{
+    top: 0px;
+    left: 0px;
+    filter:none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius:0;
+    background-color: $internews-blue;
+    &::before{
+      display:none;
+    }
+  }
+  .c4l-learningoutcomes-list li::before{
+    background-image:none;
+    content:"\f0da";
+    @extend .fa;
+    color: $internews-blue;
+  }
+}
+.c4l-tip{
+  @extend .infobox;
+  border:none;
+  &::after{
+    display:none;
+  }
+}
+.c4l-readingcontext{
+  @extend .hive-box;
+  display:block;
+  box-shadow:none;
+  font-family: inherit;
+  p, .c4l-readingcontext-caption{
+    font-size: inherit;
+  }
+  &::before{
+    float:left;
+  }
+  >p, >h2, >h3, >h4, >h5, >h6, >div{
+    margin-left:2rem;
+  }
+}
+.c4l-example{
+  @extend .highlightbox;
+  box-shadow:none;
+  background: #fff;
+  border: 1px solid $light-blue;
+  max-width:85%;
+  h1, h2, h3, h4, h5, h6{
+    font-weight: 700;
+    padding-right: 2rem;
+    font-size: 11px;
+    line-height: 21px;
+    letter-spacing: .5px;
+    color: $midnight-blue;
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+    font-family: inherit;
+    display: inline-block;
+    border-bottom: 2px solid $midnight-blue;
+  }
+}
+.c4l-quote{
+  .c4l-quote-text p{
+    &::before{
+      @extend .fa;
+      content: "\f10d";
+      color:$light-blue;
+    }
+    &::after{
+      @extend .fa;
+      content: "\f10e";
+      color:$light-blue;
+    }
+  }
+  .c4l-quote-line{
+    display:none;
+  }
+}
+
 
 /*-----Footer-----*/
 .footer-content-popover{
@@ -118,8 +229,25 @@ ul.select-options li:empty {
       }
     }
 }
+/*editor label only*/
+#page-site-index:not(.editing) .admin-label{
+  display:none;
+}
+#page-site-index.editing .admin-label{
+  display: block;
+  background: red;
+  color: white;
+  padding:3px;
+}
 
 #page-site-index{
+  /*if using full catalog cards*/
+  .cardlistCards{
+    @extend .catalog-cards;
+    .gridview .card-block p.card-text.float-left{
+         max-width:90%!important;
+    }
+  }
   .industry-card {
     .card-img-overlay{
       padding:0;
@@ -142,8 +270,10 @@ ul.select-options li:empty {
     left:0;
     right:0;
     p{
+      @extend .h1;
       padding:20px;
       background: $midnight-blue;
+      color:#fff;
       text-transform: none;
       font-size: 2.5rem;
       max-width: unset;
@@ -165,7 +295,153 @@ ul.select-options li:empty {
   }
 }
 
-/*-----Front page for guest*/
+/*----Front page new---*/
+#page-site-index{
+  .btn-special{
+    border: 1px solid #000;
+    background-color: #FFF;
+    padding: 15px 17px 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: center;
+    color: #000;
+    box-shadow: -4px 4px 0 0 #0d5cab;
+    border-radius: 0;
+    &:hover{
+      @extend .little-hop;
+    }
+  }
+  .flex-row{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .carousel-caption{
+    width:45%;
+    text-align:left;
+    p{
+      background:transparent;
+      text-shadow:1px 1px 6px rgba(0,0,0,.9);
+    }
+  }
+  .public-home, .staff-home, .ejn-home{
+    text-align:left;
+    img.monks{
+      width:330px;
+      height:auto;
+     z-index:10;
+    }
+    .option{
+      width:23%;
+      min-width:193px;
+      padding:1rem;
+      margin:0.5rem;
+      background: #b2bce0;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      .btn-primary{
+        @extend .btn-special;
+      }
+      &.opt-highlight{
+        background:#0d5cab;
+        color:#fff;
+        img{
+          width: 100%;
+          height:auto;
+          margin-bottom: 0.3rem;
+          &:hover{
+            @extend .little-shake;
+          }
+          &.plant:hover{
+            @extend .rustle;
+          }
+        }
+        i{
+          font-size: 1.5rem;
+          text-align:right;
+        }
+        &:hover{
+          text-decoration:none;
+          img{
+            margin-bottom:0;
+          }
+          i{
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+    .home-article{
+      margin:3rem 0;
+      background:#e9ecef;
+      padding:2rem 1rem;
+      .more-courses{
+        text-align: center;
+        min-width: 200px;
+        padding-left: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+      }
+    }
+    .c4l-quote{
+      width:40%;
+      margin:0 auto;
+    }
+    .theme-list{
+      @extend .flex-row;
+      list-style:none;
+      li{
+        padding-right:1rem;
+      }
+    }
+    .app-note{
+      font-size:small;
+      text-align: right;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  #page-site-index .carousel-caption.d-none{
+   display:block!important;
+  }
+}
+
+/*Animations*/
+.little-shake {
+  animation: shake 0.3s;
+  animation-iteration-count: 1;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  30% { transform: translate(-1px, 0px) rotate(1deg); }
+  50% { transform: translate(0px, 0px) rotate(1deg); }
+  70% { transform: translate(-1px, -2px) rotate(-1deg); }
+  100% { transform: translate(1px, 0px) rotate(0deg); }
+}
+.little-hop {
+  animation: hop 0.2s;
+}
+@keyframes hop {
+  0% { transform: translate(0px, 0px); }
+  40% { transform: translate(0px, -2px); }
+  100% { transform: translate(0px, 0px); }
+}
+.rustle {
+  animation: rustle 0.3s;
+}
+@keyframes rustle {
+  0% { transform: rotate(0deg); }
+  30% { transform:  rotate(-1deg); }
+  50% { transform:  rotate(0deg); }
+  70% { transform:  rotate(1deg); }
+  100% { transform:  rotate(0deg); }
+}
+
+/*-----Front page for guest----*/
 #page-site-index #frontpage-available-course-list{
   text-align:left;
   .courses.frontpage-course-list-all{
@@ -211,6 +487,63 @@ ul.select-options li:empty {
 }
 
 /*-----Catalog-----*/
+/*card styles that can be used on other pages*/
+.catalog-cards{
+  .card{
+    @extend .card-shadow;
+    .img-container .card-image {
+      aspect-ratio:3/2;
+      object-fit:cover;
+    }
+  }
+  .gridview{
+    .card-footer{
+      .card-text .text-muted{
+        margin-bottom:10px;
+      }
+    }
+    .card-block{
+      padding:0px;
+      p.card-text.float-left{
+        margin:8px 5px;
+        max-width:52%;
+        .text-muted{
+          text-transform: uppercase;
+          font-size: smaller;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
+          color: #ffffff !important;
+        }
+      }
+      .float-right {
+        padding-right: 5px;
+        margin-top:2px;
+      }
+    }
+    .category-rating-container {
+      background: $midnight-blue;
+      padding: 5px;
+    }
+    .course-category {
+      padding-top: 5px;
+      padding-left:5px;
+    }
+    .empty-stars {
+      color: #ffffff;
+    }
+    .course-rating .fa.fa-star {
+      color: #ffffff;
+    }
+    .card-title {
+      padding: 10px;
+    }
+    .course-details .text-muted {
+      color: #000000;
+    }
+  }
+}
 #page-course-index-category {
   .filter-box .select-options, #page-site-index .filter-box .select-options {
     text-wrap: wrap;
@@ -228,63 +561,7 @@ ul.select-options li:empty {
           display:none;
         }
         .cardlistCards{
-          .card{
-            @extend .card-shadow;
-            .img-container .card-image {
-              aspect-ratio:3/2;
-              object-fit:cover;
-            }
-          }
-          .gridview{
-            .card-footer{
-              .card-text .text-muted{
-                margin-bottom:10px;
-              }
-            }
-            .card-block{
-              padding:0px;
-              p.card-text.float-left{
-                margin:8px 5px;
-                max-width:52%;
-                .text-muted{
-                  text-transform: uppercase;
-                  font-size: smaller;
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  display: block;
-                  color: #ffffff !important;
-                }
-              }
-              .float-right {
-                padding-right: 5px;
-                margin-top:2px;
-              }
-            }
-            .category-rating-container {
-              background: $midnight-blue;
-              padding: 5px;
-            }
-            .course-category {
-              padding-top: 5px;
-              padding-left:5px;
-            }
-            .empty-stars {
-              color: #ffffff;
-            }
-            /*.star{
-              font-size:0.9em;
-            }*/
-            .course-rating .fa.fa-star {
-              color: #ffffff;
-            }
-            .card-title {
-              padding: 10px;
-            }
-            .course-details .text-muted {
-              color: #000000;
-            }
-          }
+          @extend .catalog-cards;
         }
       }
     }
@@ -454,12 +731,15 @@ ul.select-options li:empty {
 
 /*-----Activities general-----*/
 /*extra header*/
-#page-mod-page-view, #page-mod-feedback-view, #page-mod-appointment-view, #page-mod-assignment-view, #page-mod-book-view, #page-mod-chat-view, #page-mod-choice-view, #page-mod-database-view, #page-mod-forum-viewr, #page-mod-glossary-view, #page-mod-coursecertificate-view, #page-mod-scorm-view, #page-mod-feedback-complete, #page-mod-lesson-view, #page-mod-feedback-complete, #page-mod-quiz-view, #page-mod-quiz-attempt, #page-mod-quiz-summary, #page-mod-quiz-review, #page-mod-resource-view, #page-mod-forum-view, #page-mod-forum-discuss, #page-mod-data-view, #page-mod-wiki-view, #page-mod-wiki-history, #page-mod-wiki-create, #page-mod-wiki-edit, #page-mod-wiki-comments, #page-mod-wiki-map, #page-mod-wiki-files, #page-mod-wiki-diff {
+#page-mod-page-view, #page-mod-feedback-view, #page-mod-appointment-view, #page-mod-assignment-view, #page-mod-book-view, #page-mod-chat-view, #page-mod-choice-view, #page-mod-database-view, #page-mod-forum-viewr, #page-mod-glossary-view, #page-mod-coursecertificate-view, #page-mod-scorm-view, #page-mod-feedback-complete, #page-mod-lesson-view, #page-mod-feedback-complete, #page-mod-quiz-view, #page-mod-quiz-attempt, #page-mod-quiz-summary, #page-mod-quiz-review, #page-mod-resource-view, #page-mod-forum-view, #page-mod-forum-discuss, #page-mod-data-view, #page-mod-wiki-view, #page-mod-wiki-history, #page-mod-wiki-create, #page-mod-wiki-edit, #page-mod-wiki-comments, #page-mod-wiki-map, #page-mod-wiki-files, #page-mod-wiki-diff, #page-mod-questionnaire-complete, #page-mod-questionnaire-view, #page-mod-questionnaire-myreport, #page-mod-questionnaire-report, #page-mod-assign-view, #page-mod-assign-editsubmission, #page-mod-assign-grading, #page-mod-assign-removesubmissionconfirm, #page-mod-url-view {
   .page-context-header{
     display: none;
   }
 }
 /*not all activities included above; will need adding*/
+.path-mod .activity-header:not(:empty){
+  background-color:transparent;
+}
 
 /*complete button*/
 .activity-header .completion-info button[data-toggletype="manual:mark-done"]{
@@ -471,38 +751,15 @@ ul.select-options li:empty {
   bottom: 25%;
 }
 
-/*.activity-header .completion-info{
-  position: fixed;
-  right: 1.2%;
-  bottom: 25%;
-}
-.activity-header .completion-info button{
-  width: 70px;
-  height: auto;
-  white-space: normal!important;
-}
-.activity-header .completion-info .automatic-completion-conditions .badge{
-  width: 80px;
-  white-space: break-spaces;
-  padding-top: 0px;
-}*/
-
 /*navigation buttons*/
-.activity-navigation .urlselect{
-  display:none;
-}
-.activity-navigation #next-activity-link::before{
-   content:"NEXT: ";
-}
-.activity-navigation #next-activity-link{
-   background: #b2bce0;
-   color:#000000;
-}
-.activity-navigation #next-activity-link:hover{
-  text-decoration:none;
-/*option 1: lift +shadow*/
-  /*box-shadow: 0 0.5em 0.5em -0.6em rgba(0, 0, 0, 0.6);
-  transform: translateY(-0.2em);*/
+#navbuttons{
+  .togglecompletion{
+    .custom_activity_completion{
+      width:48px;
+      height:auto;
+      background-color:transparent;
+    }
+  }
 }
 
 .modified {display: none;}
@@ -515,6 +772,11 @@ ul.select-options li:empty {
     #fitem_id_introeditor, .checkbox{
       display:none;
     }
+  }
+}
+#page-mod-page-view{
+  [role="main"] ul li{
+    margin-bottom:0.5rem;
   }
 }
 
@@ -553,6 +815,58 @@ ul.select-options li:empty {
     border-left: 3px solid black;
     [title="Reply"]{
       display:none;
+    }
+  }
+  /*blog format*/
+  &.forumtype-blog{
+    [role="main"]{
+      .container-fluid.tertiary-navigation, [data-gradable-itemtype="forum"]{
+        background: $light-grey;
+        padding: 1rem;
+      }
+      .container-fluid.tertiary-navigation{
+        padding-bottom:0;
+        border-radius: .5rem .5rem 0 0;
+        .row{
+          padding-left:0.5rem;
+          padding-right:0.5rem;
+        }
+      }
+      [data-gradable-itemtype="forum"]{
+        padding-top:0;
+        border-radius: 0 0 .5rem .5rem;
+        margin-bottom:1rem;
+      }
+      .forum-post-container{
+        background:#fff;
+        .forumpost{
+          header .mb-3{
+            font-size:x-small;
+          }
+          .post-actions-container a{
+            font-size:small;
+          }
+        }
+      }
+    }
+  }
+}
+#page-mod-forum-discuss{
+  .forumpost{
+    &.unread{
+      header.header{
+        background-color:transparent;
+        &::after{
+          content:"NEW";
+          background:$yellow;
+          color:$midnight-blue;
+          margin-left: 4rem;
+          padding: 0.2rem 1rem;
+          height: 1.5rem;
+          font-size: 0.75rem;
+          border-radius: 30px;
+        }
+      }
     }
   }
 }
@@ -604,16 +918,17 @@ ul.select-options li:empty {
     margin-right: 5px;
   }
   .que{
+    .answer .specificfeedback{
+      background-color: $lightest-blue;
+      padding: 0.7em;
+    }
     .outcome, .comment{
       color: #132E4D;
-      background-color: #DCE3F4;
-      border-color: #DCE3F4;
+      background-color: $lightest-blue;
+      border-color: $lightest-blue;
       &::before{
         @extend .fa;
         content: "\f05a"
-      }
-      &:hover{
-        transform: scale(1.1);
       }
     }
     border-top: 1px solid #dee2e6;
@@ -646,6 +961,11 @@ ul.select-options li:empty {
     tbody tr:nth-of-type(odd){
       background-color:transparent;
     }
+  }
+}
+#page-question-type-multichoice{
+  #id_combinedfeedbackhdrcontainer .tox-tinymce{
+    min-height:200px;
   }
 }
 
@@ -697,6 +1017,142 @@ ul.select-options li:empty {
       padding:1rem;
     }
   }
+}
+
+/*----Wiki----*/
+#page-mod-wiki-view{
+  .wiki_headingtitle{
+    border: 1.5px solid $lightest-blue;
+    border-bottom:none;
+    padding:1rem;
+    padding-bottom:0;
+    margin-right:1rem;
+    h3{
+      margin-bottom:0;
+    }
+  }
+  .generalbox{
+    border: 1.5px solid $lightest-blue;
+    border-top:none;
+    padding:1rem;
+    padding-top:0;
+    padding-bottom:2rem;
+    margin-right:1rem;
+  }
+}
+#page-mod-wiki-edit{
+  .wiki_headingtitle{
+    color:$light-blue;
+  }
+}
+
+
+/*----Questionnaire----*/
+#page-mod-questionnaire-complete, #page-mod-questionnaire-myreport, #page-mod-questionnaire-report{
+  .surveyTitle{
+    display:none;
+  }
+  .generalbox{
+    fieldset.qn-container{
+      .qn-info{
+        background:transparent;
+        padding:0;
+      }
+      .qn-content{
+        margin-left:0;
+        .qn-question{
+          background-color:transparent;
+          margin-bottom:0;
+        }
+        .qn-answer{
+          margin-bottom:2.5rem;
+        }
+      }
+    }
+  }
+}
+#page-mod-questionnaire-myreport{
+  .generalbox{
+    h2{
+      @extend .h4;
+      margin-bottom:1rem;
+    }
+    .respondentinfo{
+      padding: 0.5rem;
+      background: $lightest-blue;
+      font-size: 80%;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .qn-answer{
+      border: 1.5px solid $light-blue;
+      padding: 0.5rem;
+    }
+  }
+}
+#page-mod-questionnaire-questions{
+  #id_questionhdrcontainer{
+    fieldset{
+      /*hide certain question types*/
+      select option{
+        &[value="100"], &[value="8"], &[value="11"], &[value="2"], &[value="1"], &[value="99"]{
+          display:none;
+        }
+      }
+    }
+  }
+}
+#page-mod-questionnaire-report{
+  .generalbox{
+    margin-top:2rem;
+  }
+  .qn-container{
+    margin-top:3.5rem;
+    .qn-info{
+      background:transparent;
+    }
+    .qn-question{
+      background-color:transparent;
+    }
+    table.generaltable{
+      tbody tr:nth-of-type(odd) {
+        background-color: transparent;
+        &.lastrow{
+          background: $lightest-grey;
+        }
+      }
+      td, th{
+        border-top:none;
+      }
+      tr.lastrow{
+        background: $lightest-grey;
+      }
+      tr:hover{
+        background-color:transparent;
+      }
+    }
+  }
+}
+
+
+/*----Choice----*/
+#page-mod-choice-view{
+  .completion-info{
+    border-bottom:none;
+  }
+}
+
+#page-mod-url-view{
+  .completion-info{
+    border-bottom:none;
+  }
+  [role="main"]{
+    margin-left:1rem;
+    a{
+      text-decoration: underline;
+    }
+  }  
 }
 
 
