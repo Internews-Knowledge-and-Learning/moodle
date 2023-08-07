@@ -73,90 +73,32 @@ h5, .h5, h6, .h6{
   }
 }
 
-/*-----C4L-----*/
-.c4l-allpurposecard{
-  @extend .highlightbox;
+/*only for LTV*/
+.ltv-orange{
+  background: #efcbbd;
 }
-.c4l-learningoutcomes{
-  @extend .highlightbox;
-  .c4l-learningoutcomes-title{
-    top: 0px;
-    left: 0px;
-    filter:none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius:0;
-    background-color: $internews-blue;
-    &::before{
-      display:none;
-    }
-  }
-  .c4l-learningoutcomes-list li::before{
-    background-image:none;
-    content:"\f0da";
-    @extend .fa;
-    color: $internews-blue;
-  }
+.ltv-red{
+  background: #ffd7df;
 }
-.c4l-tip{
-  @extend .infobox;
-  border:none;
-  &::after{
-    display:none;
-  }
+.ltv-green{
+  background: #d5eac3;
 }
-.c4l-readingcontext{
-  @extend .hive-box;
-  display:block;
-  box-shadow:none;
-  font-family: inherit;
-  p, .c4l-readingcontext-caption{
-    font-size: inherit;
-  }
-  &::before{
-    float:left;
-  }
-  >p, >h2, >h3, >h4, >h5, >h6, >div{
-    margin-left:2rem;
-  }
+.ltv-yellow{
+  background: #ffebd4;
 }
-.c4l-example{
-  @extend .highlightbox;
-  box-shadow:none;
-  background: #fff;
-  border: 1px solid $light-blue;
-  max-width:85%;
-  h1, h2, h3, h4, h5, h6{
-    font-weight: 700;
-    padding-right: 2rem;
-    font-size: 11px;
-    line-height: 21px;
-    letter-spacing: .5px;
-    color: $midnight-blue;
-    margin: 0 0 24px 0;
-    text-transform: uppercase;
-    font-family: inherit;
-    display: inline-block;
-    border-bottom: 2px solid $midnight-blue;
-  }
+.ltv-blue{
+  background: $lightest-blue;
 }
-.c4l-quote{
-  .c4l-quote-text p{
-    &::before{
-      @extend .fa;
-      content: "\f10d";
-      color:$light-blue;
-    }
-    &::after{
-      @extend .fa;
-      content: "\f10e";
-      color:$light-blue;
-    }
-  }
-  .c4l-quote-line{
-    display:none;
-  }
+.ltv-grey{
+  background:$light-grey;
+}
+.ltv-darkblue{
+  background: $midnight-blue;
+  color:#fff;
 }
 
+/*-----C4L-----*/
+/*moved to plug-in file*/
 
 /*-----Footer-----*/
 .footer-content-popover{
@@ -198,6 +140,31 @@ h5, .h5, h6, .h6{
   }
 }
 
+/*-----Login page-----*/
+#page-login-index{
+  .login-languagemenu{
+    font-size:1rem;
+    &::before{
+      @extend .fa;
+      color:$yellow;
+      content:"\f1ab";
+      content:"\f086";
+      margin: auto 0.5rem auto 0;
+      font-size:1.5rem;
+      @extend .constant-pulse;
+    }
+  }
+}
+/*Animations*/
+.constant-pulse {
+  animation: pulse 0.8s;
+  animation-iteration-count: 15;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
 
 /*-----Front-page-----*/
 /*variable class*/
@@ -506,7 +473,7 @@ h5, .h5, h6, .h6{
       padding:0px;
       p.card-text.float-left{
         margin:8px 5px;
-        max-width:52%;
+        /* commenting this out because star rating isn't working max-width:52%;*/
         .text-muted{
           text-transform: uppercase;
           font-size: smaller;
@@ -530,12 +497,16 @@ h5, .h5, h6, .h6{
       padding-top: 5px;
       padding-left:5px;
     }
-    .empty-stars {
+    /*because rating not working*/
+    .card-rating{
+      display:none;
+    }
+    /*.empty-stars {
       color: #ffffff;
     }
     .course-rating .fa.fa-star {
       color: #ffffff;
-    }
+    }*/
     .card-title {
       padding: 10px;
     }
@@ -581,7 +552,7 @@ h5, .h5, h6, .h6{
   display:none;
 }
 
-/*Self-enrolment page*/
+/*----Self-enrolment page----*/
 #page-enrol-index{
   .tool_catalogue-catalogue.course{
     .customfield_kenaifilter1, .customfield_kenaifilter2, .customfield_kenaiinfo1, .customfield_kenaimandatory{
@@ -635,6 +606,59 @@ h5, .h5, h6, .h6{
             @extend .h5;
           }
         }
+      }
+    }
+  }
+}
+/*separate program styles*/
+#page-my-index{
+  .programimage{
+    display:none;
+  }
+  .page-header-image{
+    display:none;
+  }
+  .moremenu .nav-tabs{
+    background-color:transparent;
+  }
+  [data-region="program-heading"]{
+    h3[data-region="pagesection-name"].h5{
+      @extend .h3;
+    }
+  }
+  .d-flex.w-100{
+    .completionsvg{
+      display:none;
+    }
+    .pr-3{
+      @extend .h3;
+      margin-bottom:1rem;
+      margin-top:2rem;
+      strong{
+        font-weight:700;
+      }
+    }
+    .text-muted{
+      margin-bottom:1rem;
+      margin-top:2rem;
+    }
+  }
+  .card{
+    .media-body{
+      .badge-warning, .badge-danger{
+        &:before{
+          content: "REQUIRED: ";
+        }
+      }
+    }
+    .mosaicimages{
+      display:none;
+    }
+    .icon-no-margin .fa-folder-o{
+      color: $yellow;
+      padding-top: 0.5rem;
+      &::before{
+        content:"\f46d";
       }
     }
   }
@@ -699,6 +723,40 @@ h5, .h5, h6, .h6{
       background-color: $light-blue;
     }
   }
+  .coursecontacts{
+    @extend .flex-row;
+    display:flex;
+    .fc-coursecontacts{
+      display:flex;
+      flex-direction:row;
+      list-style-type: none;
+      li{
+        margin-left:1rem;
+        span.fc-coursecontactroles{
+          display:none;
+        }
+        .fa-envelope-o{
+          color:$light-blue;
+        }
+        &::marker{
+          display:none;
+        }
+      }
+    }
+  }
+  /*section description and restriction*/
+  .description .course-description-item{
+    background-color:transparent;
+    .description-inner{
+      border-bottom:none;
+    }
+    .isrestricted{
+      background:$lightest-grey;
+      .description-inner{
+        padding:0.5rem;
+      }
+    }
+  }
 }
 
 /*-----Community page overview (ie card format)-----*/
@@ -759,6 +817,11 @@ h5, .h5, h6, .h6{
       height:auto;
       background-color:transparent;
     }
+  }
+}
+#page-mod-quiz-summary, #page-mod-quiz-attempt, #page-mod-questionnaire-complete, #page-mod-feedback-complete, #page-mod-wiki-edit, #page-mod-assign-editsubmission, #page-mod-data-edit{
+  #navbuttons{
+    display:none;
   }
 }
 
