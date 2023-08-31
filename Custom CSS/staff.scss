@@ -1,0 +1,156 @@
+/*background colors*/
+$light-grey: #e9ecef;
+$lightest-grey: #f1f4f5;
+$lightest-blue: #DCE3F4;
+/*brand colors*/
+$internews-blue: #0d5cab;
+$midnight-blue: #132E4D;
+$light-blue: #b2bce0;
+$yellow: #fcb134;
+$orange:#f15c22;
+$light-green:#6fb43f;
+
+/*hide course format accordion for staff editors*/
+#id_courseformathdr{
+  display:none;
+}
+
+/*hide other tenant components*/
+.ejn-home, .public-home{
+  display:none;
+}
+/*hide mobile page list item except for admins*/
+#page-site-index:not(.editing){
+  li.activity-wrapper.modtype_page{
+    display:none;
+  }
+}
+
+.card-text .text-muted:not(:last-child){
+  text-transform: uppercase;
+    font-size: x-small;
+    background: #e9ecef;
+    padding-left:2px;
+}
+
+li[data-key="tool_custompage-6"]{
+  display:none;
+}
+
+#page-admin-tool-custompage{
+  [data-block="recentlyaccesseditems"]{
+    background-color: transparent;
+    border:none;
+    h5{
+        display:none!important;
+    }
+    .dashboard-card-deck{
+      flex-flow: wrap;
+      overflow-x: unset;
+    }
+    &::before{
+      content: "Your 6 most recently visited activities";
+    }
+    .dashboard-card{
+      display:none;
+      &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6){
+        display:flex;
+        .card-body{
+          >.text-truncate::before{
+            @extend .fa;
+            content:"\f1d8";
+            color: $orange;
+            padding: 0;
+            font-size: 1.2rem;
+            margin: auto;
+            margin-right: 0.2rem;
+          }
+          .activityiconcontainer{
+            background-color: $orange;
+            display:none!important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.multi-buttons{
+  .flex-row{
+    justify-content: space-evenly;
+    margin: 1rem;
+    .btn{
+      margin: 0 1rem 1rem 0;
+    }
+  }
+}
+#page-site-index .return, #mandatory{
+  @extend .multi-buttons;
+  text-align:center;
+  display: block;
+  background:$light-grey;
+  border: 1px solid #000;
+  padding: 0.7rem 0.7rem 0 0.7rem;
+  width:70%;
+  margin:auto;
+  .flex-row{
+    .btn{
+      padding: 13px 15px 10px;
+      font-size: 0.8rem;
+      box-shadow: -4px 4px 0 0 #fcb134;
+    }
+  }
+}
+#page-site-index .external-courses{
+  @extend .multi-buttons;
+  .external-courses-text{
+    width:calc(90% - 330px);
+  }
+  img{
+    width:330px;
+    height:auto;
+    margin:auto;
+  }
+}
+
+/*curated collections*/
+#categoryCards{
+  margin-top:1rem;
+  .nonmodalCard.flex-column.hive{
+    .btn{
+      margin: 0 1rem 1rem 0;
+    }
+    .hive-icon{
+      color:$yellow;
+      font-size:3rem;
+      margin-top:0.5rem;
+      text-align:center;
+    }
+  }
+}
+
+/*add border above mandatory carousel*/
+#page-site-index{
+  .mandatory-items{
+    padding-top:0!important;
+  }
+  #mandatory{
+    margin-top:5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .flex-row > *{
+   width:100%!important;
+  }
+}
+
+/*box that shows shareable link to send to externals*/
+.shareable-link{
+  background: #ffd7df;
+  padding:0.5rem;
+  margin:1rem;
+  #new-link{
+    font-weight:bold;
+  }
+}

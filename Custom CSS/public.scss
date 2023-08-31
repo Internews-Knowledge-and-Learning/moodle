@@ -1,0 +1,60 @@
+/*temporary styles for testing*/
+#page-mod-page-view.category-12{
+  .activity-header .completion-info button[data-toggletype="manual:mark-done"]{
+    display:none;
+  }
+}
+
+/*hide other tenant components*/
+.ejn-home, .staff-home, #mandatory{
+  display:none;
+}
+/*hide mobile page list item except for admins*/
+#page-site-index:not(.editing){
+  li.activity-wrapper.modtype_page{
+    display:none;
+  }
+}
+
+/*custom catalog styling*/
+#page-course-index-category{
+  .search-filters{
+    form{
+      .row{
+        /*category*/
+        .filter-categoryid{
+          display:none;
+        }
+        /*sub-category*/
+        .filter-kenaifilter1{
+          order:2;
+        }
+        /*types/audience/tbd*/
+        .filter-kenaifilter2{
+          order:2;
+        }
+        /*language*/
+        .filter-kenaifilter3{
+          order:1;
+        }
+        /*sort*/
+        .filter-sort{
+          order:4;
+        }
+        /*search*/
+        .filter-search{
+          order:5;
+        }
+        /*buttons to choose grid or list*/
+        .filter-toggle{
+          order:6;
+        }
+      }
+    }
+  }
+}
+
+/*box that shows shareable link to send to externals*/
+.shareable-link{
+  display:none;
+}

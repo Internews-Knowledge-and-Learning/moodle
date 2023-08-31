@@ -1,0 +1,176 @@
+/*hide mobile page list item except for admins*/
+#page-site-index:not(.editing){
+  li.activity-wrapper.modtype_page{
+    display:none;
+  }
+}
+/*front page*/
+#page-site-index{
+/*hide other homepages + mandatory training note*/
+  .staff-home, .public-home, #mandatory{
+    display:none;
+  }
+  .ejn-home{
+    text-align:left;
+  }
+  .activity-item{
+    padding:0;
+  }
+  hr{
+    margin-top:2rem;
+    margin-bottom:4rem;
+  }
+  .mc-button-container{
+    text-align:center;
+  }
+  section.fp-section{
+    text-align: left;
+    margin: 1.5rem;
+    h3{
+      font-size:1.3rem;
+    }
+    h2{
+      position: relative;
+      z-index: 2;
+      /*text-shadow: 2px 0 0 #f1f4f5, -2px 0 0 #f1f4f5, 0 2px 0 #f1f4f5, 0 -2px 0 #f1f4f5, 1px 1px #f1f4f5, -1px -1px 0 #f1f4f5, 1px -1px 0 #f1f4f5, -1px 1px 0 #f1f4f5;*/
+       text-shadow: 4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5,   4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5,   4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5,   4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5, 
+  4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5,   4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5,   4px 0 1px #f1f4f5, -4px 0 1px #f1f4f5, 0 4px 1px #f1f4f5, 0 -4px 1px #f1f4f5, 2px 2px #f1f4f5, -2px -2px 1px #f1f4f5, 2px -2px 1px #f1f4f5, -2px 2px 1px #f1f4f5;
+      margin-bottom: 40px;
+      &::before {
+        content: "";
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        border: solid 2px #7fbe4b;
+        border-radius: 50%;
+        top: -20px;
+        left: -20px;
+        z-index: -99999;
+      }
+    }
+  }
+  .btn-primary, .btn-special{
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 15px 17px 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: center;
+    color: #000000;
+    box-shadow: -4px 4px 0px 0px #6fb43f;
+    border-radius:0;
+  }
+  .card-deck.fc-mycoursescards
+  {
+    justify-content:start;
+    .card-img-top{
+      aspect-ratio:1.5;
+      height:auto!important;
+    }
+    .card-title{
+      font-weight: bold;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+  }
+  .explore{
+    display:flex; 
+    flex-direction:row;
+    margin-bottom:1.5rem;
+    justify-content:start;
+    flex-wrap:wrap;
+    .explore-box{
+      width:48%;
+      min-width: 250px;
+      margin-bottom: 20px;
+      padding:1rem;
+      display: flex;
+      flex-direction:column;
+      justify-content:space-between;
+     background:#DCE3F4;
+      &.explore-half-left{
+        margin-right:4%;
+      }
+      &.explore-half-right{
+        margin-right:0;
+      }
+      &.explore-full{
+        width:100%;
+        background:#0d5cab;
+        color:#fff;
+        .box-button i{
+          font-size:1.5rem;
+        }
+        &:hover{
+          text-decoration:none;
+          .box-button i{
+            font-size:1.8rem;
+          }
+          p{
+            margin-bottom:0.7rem;
+          }
+        }
+      }
+      .box-content{
+        text-align:left;
+      }
+      .box-button{
+        text-align:right;
+      }
+    }
+  }
+}
+
+/*animation*/
+#page-site-index .ejn-home .option.opt-highlight img:hover{
+  animation: none;
+}
+
+/*custom catalog styling*/
+#page-course-index-category{
+  .search-filters{
+    form{
+      .row{
+        /*category and internews skills*/
+        .filter-categoryid, .filter-kenaifilter2{
+          display:none;
+        }
+        /*sub-category*/
+        .filter-kenaifilter1{
+          order:2;
+        }
+        /*types/audience/tbd*/
+        .filter-kenaifilter2{
+          order:2;
+        }
+        /*language*/
+        .filter-kenaifilter3{
+          order:1;
+        }
+        /*sort*/
+        .filter-sort{
+          order:4;
+        }
+        /*search*/
+        .filter-search{
+          order:5;
+        }
+        /*buttons to choose grid or list*/
+        .filter-toggle{
+          order:6;
+        }
+      }
+    }
+  }
+}
+
+.card-text .text-muted:not(:last-child){
+  display:none;
+}
+
+/*hide note to staff about link sharing*/
+.shareable-link{
+  display:none;
+}
