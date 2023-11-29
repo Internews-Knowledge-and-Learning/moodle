@@ -1,0 +1,21 @@
+/*hide mobile page list item except for admins*/
+#page-site-index:not(.editing){
+  li.activity-wrapper.modtype_page{
+    display:none;
+  }
+}
+
+#page-site-index{
+/*hide other homepages + mandatory training note*/
+  .staff-home, .public-home, .ejn-home, #mandatory{
+    display:none;
+  }
+}
+
+#page-admin-tool-tenant-details{
+  :not(.editing){
+    .mform fieldset:nth-of-type(2){
+      display:none;
+    }
+  }
+}
