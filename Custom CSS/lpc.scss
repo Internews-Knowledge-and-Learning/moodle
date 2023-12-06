@@ -1,15 +1,3 @@
-/*Login*/
-h2.login-heading:not(#new-account){
-  display:none;
-}
-.login-divider, .login-identityprovider-btn {
-  display:none;
-}
-
-.login-form{
-  margin-bottom: 2.5rem;
-}
-
 /*hide mobile page list item except for admins*/
 #page-site-index:not(.editing){
   li.activity-wrapper.modtype_page{
@@ -22,12 +10,90 @@ h2.login-heading:not(#new-account){
   .staff-home, .public-home, .ejn-home, #mandatory{
     display:none;
   }
+/*hide catalog tab*/
+  [data-key="custom-0"]{
+    display:none;
+  }
+/*Move featured items up*/
+  .featured-items{
+    margin-top:-6rem;
+  }
+/*styles*/
+  .headline{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    margin-bottom: 3rem;
+    img{
+      margin-bottom:2rem;
+    }
+    @media only screen and (max-width: 768px) {
+      flex-direction:column;
+      img{
+        margin:auto;
+        margin-bottom:1rem;
+      }
+    }
+  }
+  .box{
+    margin: 1rem 4rem;
+    background: #d8d8d8;
+    padding: 1.5rem;
+    filter: drop-shadow(-10px 10px 0px #ba6aa7);
+    @media only screen and (max-width: 768px) {
+      margin: 1rem 0 1rem 10px;
+    }
+    p{
+      line-height: 20pt;
+      font-family:"Kumbh Sans",sans-serif;
+      text-align:left;
+    }
+  }
 }
 
 #page-admin-tool-tenant-details{
   :not(.editing){
     .mform fieldset:nth-of-type(2){
       display:none;
+    }
+  }
+}
+
+/*custom catalog styling*/
+#page-course-index-category{
+  .search-filters{
+    form{
+      .row{
+        /*category*/
+        .filter-categoryid{
+          display:none;
+        }
+        /*sub-category*/
+        .filter-kenaifilter1{
+          order:2;
+        }
+        /*types/audience/tbd*/
+        .filter-kenaifilter2{
+          order:2;
+        }
+        /*language*/
+        .filter-kenaifilter3{
+          order:1;
+        }
+        /*sort*/
+        .filter-sort{
+          order:4;
+        }
+        /*search*/
+        .filter-search{
+          order:5;
+        }
+        /*buttons to choose grid or list*/
+        .filter-toggle{
+          order:6;
+        }
+      }
     }
   }
 }
