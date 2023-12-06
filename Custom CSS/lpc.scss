@@ -1,3 +1,15 @@
+/*Login*/
+h2.login-heading:not(#new-account){
+  display:none;
+}
+.login-divider, .login-identityprovider-btn {
+  display:none;
+}
+
+.login-form{
+  margin-bottom: 2.5rem;
+}
+
 /*hide mobile page list item except for admins*/
 #page-site-index:not(.editing){
   li.activity-wrapper.modtype_page{
