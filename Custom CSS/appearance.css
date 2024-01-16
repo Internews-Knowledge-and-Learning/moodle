@@ -1,3 +1,8 @@
+/*temporary; hide additional*/
+.card-text .text-muted:not(:last-child) {
+  display:none;
+}
+
 /*----variables and reusable classes----*/
 /*background colors*/
 $light-grey: #e9ecef;
@@ -13,6 +18,11 @@ $light-green:#6fb43f;
 .card-shadow{
   -webkit-box-shadow: 0 0 6px rgba(0,0,0,.08);
   box-shadow: 0 0 6px rgba(0,0,0,.08);
+}
+.no-choose{
+  button{
+    display:none!important;
+  }
 }
 
 /*-----General----*/
@@ -142,11 +152,23 @@ h5, .h5, h6, .h6{
 
 /*-----Login page-----*/
 #page-login-index{
+  .login-identityprovider-btn{
+    @extend .btn-primary;
+    /*&::before{
+      @extend .fa;
+      content: "\f17a";
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+    img{
+      display:none;
+    }*/
+  }
   .login-languagemenu{
     font-size:1rem;
     &::before{
       @extend .fa;
-      color:$yellow;
+      color:$light-blue;
       content:"\f1ab";
       content:"\f086";
       margin: auto 0.5rem auto 0;
@@ -261,9 +283,24 @@ h5, .h5, h6, .h6{
     }
   }
 }
+/*mobile guidance page*/
+.course-1#page-mod-page-view {
+  h2{
+    display:none;
+  }
+  [role="main"] h2{
+    display:block;
+  }
+}
 
 /*----Front page new---*/
 #page-site-index{
+  .network{
+      background: #e9ecef;
+      padding: 1rem 1rem 0 1rem;
+      margin: 0 auto;
+      max-width: 600px;
+  }
   .btn-special{
     border: 1px solid #000;
     background-color: #FFF;
@@ -288,9 +325,10 @@ h5, .h5, h6, .h6{
   .carousel-caption{
     width:45%;
     text-align:left;
+    padding-bottom:0;
     p{
       background:transparent;
-      text-shadow:1px 1px 6px rgba(0,0,0,.9);
+      text-shadow:1px 1px 6px rgba(0,0,0,.7);
     }
   }
   .public-home, .staff-home, .ejn-home{
@@ -347,11 +385,13 @@ h5, .h5, h6, .h6{
       padding:2rem 1rem;
       .more-courses{
         text-align: center;
+        width:25%;
         min-width: 200px;
-        padding-left: 3rem;
+        padding-left: 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center
+        justify-content: center;
+        margin-bottom: 2rem;
       }
     }
     .c4l-quote{
@@ -371,9 +411,29 @@ h5, .h5, h6, .h6{
     }
   }
 }
+
+/*mobile*/
 @media only screen and (max-width: 768px) {
   #page-site-index .carousel-caption.d-none{
    display:block!important;
+   width:90%;
+  }
+  #page-site-index .carousel-item img.slide-img{
+    object-position: left;
+  }
+  .more-courses{
+    margin-bottom: 2rem;
+  }
+  #page-site-index .home-article .c4l-quote{
+    margin-bottom:3rem;
+  }
+  #page-site-index .ejn-home, #page-site-index .staff-home, #page-site-index .public-home{
+    .option{
+      width:100%;
+    }
+  }
+  .ejn-home .app-note{
+    padding-right:3rem;
   }
 }
 
@@ -558,6 +618,12 @@ h5, .h5, h6, .h6{
     .customfield_kenaifilter1, .customfield_kenaifilter2, .customfield_kenaiinfo1, .customfield_kenaimandatory{
       display:none;
     }
+    >div{
+      display:none;
+    }
+    div:first-child{
+      display:block;
+    }
   }
   h3.mt-4, .alert-info{
       display:none;
@@ -683,6 +749,19 @@ h5, .h5, h6, .h6{
   &:not(.editing) .secondary-navigation{
     display:none;
   }
+  /*style shareable link in editing mode if used*/
+  &.editing{
+    .shareable-link{
+      background: #ffd7df;
+      padding:0.5rem;
+      display:block;
+    }
+  }
+  &:not(.editing){
+    .shareable-link{
+      display:none;
+    }
+  }
   /*remove activity icons and labels*/
   .activity-item .activity-instance .activitytitle {
     a{
@@ -804,9 +883,6 @@ h5, .h5, h6, .h6{
   width: 70px;
   height: auto;
   white-space: normal!important;
-  position: fixed;
-  right: 1.2%;
-  bottom: 25%;
 }
 
 /*navigation buttons*/
@@ -816,6 +892,16 @@ h5, .h5, h6, .h6{
       width:48px;
       height:auto;
       background-color:transparent;
+    }
+  }
+  button[data-toggletype="manual:mark-done"]{
+    color: #fff;
+    background-color: $internews-blue;
+    border-color: $internews-blue;
+    &:hover{
+      color: #fff;
+      background-color: #0a4987;
+      border-color: #09437c;
     }
   }
 }
@@ -836,10 +922,20 @@ h5, .h5, h6, .h6{
       display:none;
     }
   }
+  [name="completion"]{
+    [value="2"]{
+      display:none;
+    }
+  }
 }
 #page-mod-page-view{
-  [role="main"] ul li{
-    margin-bottom:0.5rem;
+  [role="main"]{
+    ul li{
+      margin-bottom:0.5rem;
+    }
+    img{
+      max-width:100%;
+    }
   }
 }
 
@@ -1031,6 +1127,11 @@ h5, .h5, h6, .h6{
     min-height:200px;
   }
 }
+#page-mod-quiz-mod{
+  #fitem_id_preferredbehaviour{
+    display:none;
+  }
+}
 
 
 /*----Appointment----*/
@@ -1134,6 +1235,11 @@ h5, .h5, h6, .h6{
     }
   }
 }
+#page-mod-questionnaire-complete, #page-mod-questionnaire-questions, #page-mod-questionnaire-qsettings, #page-mod-questionnaire-report{
+  .activity-description{
+    display:none;
+  }
+}
 #page-mod-questionnaire-myreport{
   .generalbox{
     h2{
@@ -1159,7 +1265,7 @@ h5, .h5, h6, .h6{
     fieldset{
       /*hide certain question types*/
       select option{
-        &[value="100"], &[value="8"], &[value="11"], &[value="2"], &[value="1"], &[value="99"]{
+        &[value="100"], &[value="11"], &[value="1"], &[value="99"]{
           display:none;
         }
       }
@@ -1230,4 +1336,23 @@ h5, .h5, h6, .h6{
 }
 [id="page-h5p-embed"] {
   overflow: hidden;
+}
+
+/* Hide the default country field */
+#fitem_id_country {
+display: none;
+}
+
+#page-user-profile {
+	li.contentnode:nth-child(3) { 
+		display: none;
+	}
+}
+
+/* Hide teachers on guest homepage */
+
+#page-site-index {
+	ul.teachers {
+		display: none;
+	}
 }
