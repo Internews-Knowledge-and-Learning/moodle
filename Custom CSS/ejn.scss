@@ -4,10 +4,40 @@
     display:none;
   }
 }
+
+/*logon experience*/
+/*additional profile fields*/
+#page-user-edit{
+  #page-header::before{
+    content: "We may need some additional information about you! Please make sure all required fields are completed.";
+    background: #DCE3F4;
+    padding: 1rem;
+    margin-bottom:1.5rem;
+    display:block;
+  }
+}
+/*Login page*/
+#page-login-index .loginform{
+  .login-form, .login-divider, h2:nth-of-type(2), #guestlogin{
+    display:none;
+  }
+  .login-identityproviders{
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom:1rem;
+    a[href="https://studio.internews.org/auth/oidc/"]{
+      display:none;
+    }
+  }
+  h2{
+    margin-top:2.5rem;
+ }
+}
+
 /*front page*/
 #page-site-index{
 /*hide other homepages + mandatory training note*/
-  .staff-home, .public-home, #mandatory{
+  .staff-home, .public-home, .lpc-home, #mandatory{
     display:none;
   }
   .ejn-home{
@@ -173,4 +203,20 @@
 /*hide note to staff about link sharing*/
 .shareable-link{
   display:none;
+}
+
+/*profile page*/
+#fitem_id_profile_field_91{
+  display:block;
+  .col-md-3{
+    max-width:100%;
+  }
+  .col-md-9{
+    margin-left:4rem;
+  }
+}
+
+/*my courses note*/
+#page-my-index #page-header::after{
+  content: "This dashboard displays courses in which you are already enrolled. To enrol in new courses, visit the catalog.";
 }
