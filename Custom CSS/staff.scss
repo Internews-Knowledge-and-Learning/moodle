@@ -1,3 +1,19 @@
+/*Prevent course editors from editing sections*/
+#page-course-view-topics #region-main .course-section .section_action_menu .dropdown .dropdown-item.edit.menu-action{
+  display:none;
+}
+/*Hide editing menu of main section*/
+#page-course-view-topics #region-main .course-section#section-0 .section_action_menu{
+  display:none;
+}
+/*Hide override course
+#page-my-index{
+  #program-container div.level:last-child{
+      display:none;
+  }
+}*/
+
+
 /*background colors*/
 $light-grey: #e9ecef;
 $lightest-grey: #f1f4f5;
@@ -10,13 +26,41 @@ $yellow: #fcb134;
 $orange:#f15c22;
 $light-green:#6fb43f;
 
+/*Login page*/
+#page-login-index .loginform{
+  .login-form, .login-divider, h2:nth-of-type(2), #guestlogin{
+    display:none;
+  }
+  .login-identityproviders{
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom:1rem;
+    .login-identityprovider-btn{
+      @extend .btn-primary;
+      &::before{
+        @extend .fa;
+        content: "\f17a";
+        font-size: 1.2rem;
+        margin-right: 10px;
+      }
+      img{
+        display:none;
+      }
+    }
+  }
+  h2{
+    margin-top:2.5rem;
+ }
+}
+
+
 /*hide course format accordion for staff editors*/
 #id_courseformathdr{
   display:none;
 }
 
 /*hide other tenant components*/
-.ejn-home, .public-home{
+.ejn-home, .public-home, .lpc-home{
   display:none;
 }
 /*hide mobile page list item except for admins*/
@@ -154,3 +198,7 @@ li[data-key="tool_custompage-6"]{
     font-weight:bold;
   }
 }
+
+#page-user-profile li.contentnode:nth-child(3) {display:block}
+
+ul.navbar-nav li:nth-child(3) {display:none;}
