@@ -1,12 +1,52 @@
-/*temporary styles for testing*/
-#page-mod-page-view.category-12{
-  .activity-header .completion-info button[data-toggletype="manual:mark-done"]{
-    display:none;
+/*Login*/
+h2.login-heading:not(#new-account){
+  display:none;
+}
+.login-divider{
+  display:none;
+}
+
+.login-form{
+  margin-bottom: 2.5rem;
+}
+
+.login-instructions{
+  /*border-top: 1px solid #dee2e6;*/
+  padding-top:1rem;
+  #staff-login{
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom:1rem;
+  }
+}
+
+#loginbtn{
+  font-size: calc(0.90375rem + 0.045vw);
+}
+.login-signup{
+  margin-bottom:3rem;
+  a.btn{
+    @extend .btn-primary;
+  }
+}
+
+.login-identityproviders{
+  .login-identityprovider-btn{
+    @extend .btn-primary;
+    &::before{
+      @extend .fa;
+      content: "\f17a";
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+    img{
+      display:none;
+    }
   }
 }
 
 /*hide other tenant components*/
-.ejn-home, .staff-home, #mandatory{
+.ejn-home, .staff-home, .lpc-home, #mandatory{
   display:none;
 }
 /*hide mobile page list item except for admins*/
