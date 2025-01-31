@@ -24,6 +24,16 @@ $light-green:#6fb43f;
     display:none!important;
   }
 }
+.uppercase{
+  text-transform:uppercase;
+}
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
 
 /*-----General----*/
 ul.select-options li:empty {
@@ -46,6 +56,12 @@ h4, .h4{
 }
 h5, .h5, h6, .h6{
   font-weight: 500;
+}
+/*just myanmar*/
+[lang="my"]{
+  *:not(.fa){
+    font-family: "Padauk", serif !important;
+  }
 }
 
 .highlightbox{
@@ -75,11 +91,19 @@ h5, .h5, h6, .h6{
     @extend .h5;
   }
 }
-.hive-box{
+.hive-box, .hivebox{
   @extend .infobox;
   &::before{
     content:"\2B22";
     color: $yellow;
+  }
+}
+.alertbox{
+  @extend .infobox;
+  background: #ffd7df;
+  &::before{
+    content:"\f06a";
+    color: #ca3120;
   }
 }
 
@@ -785,6 +809,10 @@ h5, .h5, h6, .h6{
   .course-banner-image{
     width:100%;
     height:auto;
+    img{
+      aspect-ratio: 1400/510;
+      object-fit: cover;
+    }
   }
   .course-banner-completion-text{
     display: flex;
@@ -1036,11 +1064,14 @@ h5, .h5, h6, .h6{
   overflow-y:hidden;
   #scormpage{
     #tocbox #scorm_layout{
-      border: solid #ececec;
+      #scorm_content{
+        overflow:visible;
+      }
     }
     #scorm_object {
       width: 100%;
-      height: 100%;
+      height: 90%;
+      border: solid #ececec;
     }
   } 
   .btn-secondary[title="Exit activity"]{
@@ -1048,14 +1079,14 @@ h5, .h5, h6, .h6{
     border-color: #b2bce0;
     border-width: 2px;
   } 
-  .drawer.drawer-left,  .header-maxwidth, .secondary-navigation, .navbar.fixed-top, #page-wrapper #page-footer, .modal-backdrop.show, .drawer-toggler, h2 { display: none;}
+  .drawer.drawer-left,  .header-maxwidth, .secondary-navigation, .navbar.fixed-top, #page-wrapper #page-footer,  .modal-backdrop.show, .drawer-toggler, h2 { display: none;}
   #page.drawers.show-drawer-left {margin-left: 0px;}
   #page.drawers {height: auto !important;}
   #page {margin-top: 0px !important; padding: 5px;}
-  #page.drawers {padding: 0px;}
+  #page.drawers {padding: 0px; overflow:hidden;}
   #page.drawers .main-inner {padding:0px; margin-top:0px; margin-bottom: 0px}
-  #region-main-box {margin-top: 5px}
-  #scorm_layout {height: 80vh !important; margin-bottom: 20px}
+  #region-main-box {margin-top: 0px}
+  #scorm_layout {height: 90vh !important; margin-bottom: 0px}
   .pb-3, .py-3 {padding-bottom: 0px !important}
   .mt-5, .my-5 { margin-top: 0px !important; margin-bottom: 0px !important}
 }
@@ -1127,11 +1158,11 @@ h5, .h5, h6, .h6{
     min-height:200px;
   }
 }
-#page-mod-quiz-mod{
+/*#page-mod-quiz-mod{
   #fitem_id_preferredbehaviour{
     display:none;
   }
-}
+}*/
 
 
 /*----Appointment----*/
@@ -1212,6 +1243,13 @@ h5, .h5, h6, .h6{
 
 
 /*----Questionnaire----*/
+#page-mod-questionnaire-complete, #page-mod-questionnaire-myreport, #page-mod-questionnaire-report, #page-mod-questionnaire-view{
+  @media (min-width: 768px){
+    #page.drawers .main-inner{
+      max-width: 830px; 
+    }
+  }
+}
 #page-mod-questionnaire-complete, #page-mod-questionnaire-myreport, #page-mod-questionnaire-report{
   .surveyTitle{
     display:none;
